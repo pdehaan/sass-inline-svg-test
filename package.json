@@ -1,0 +1,21 @@
+{
+  "name": "sass-inline-svg-test",
+  "description": "Inline some SVGs in Sass using node-sass and sass-inline-svg",
+  "version": "1.0.0",
+  "author": "Peter deHaan <peter@deseloper.com> (https://about.me/peterdehaan)",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "node-sass": "3.8.0",
+    "sass-inline-svg": "0.1.0"
+  },
+  "keywords": [],
+  "license": "WTFPL",
+  "main": "index.js",
+  "private": true,
+  "scripts": {
+    "api": "rm dist/*.css && node index",
+    "cli": "rm dist2/*.css && node-sass static/main.scss --functions ./funcs.js > dist2/main.css",
+    "test": "npm run api && npm run cli"
+  }
+}
