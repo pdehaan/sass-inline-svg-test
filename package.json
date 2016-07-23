@@ -18,9 +18,9 @@
   "scripts": {
     "api": "node index",
     "build": "npm run api && npm run cli",
-    "cli": "node-sass static/main.scss --functions ./funcs.js --output dist_cli",
     "clean": "rimraf dist_api/*.css dist_cli/*.css",
-    "lint": "eslint . ",
+    "cli": "node-sass static/main.scss --functions ./funcs.js --output dist_cli",
+    "lint": "eslint .",
     "posttest": "diff dist_api/main.css dist_cli/main.css",
     "prebuild": "npm run clean",
     "pretest": "npm run lint",
