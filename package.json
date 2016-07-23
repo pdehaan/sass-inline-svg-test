@@ -17,10 +17,13 @@
   "private": true,
   "scripts": {
     "api": "node index",
-    "cli": "node-sass static/main.scss --functions ./funcs.js -o dist2",
-    "clean": "rimraf dist/*.css dist2/*.css",
+    "build": "npm run api && npm run cli",
+    "cli": "node-sass static/main.scss --functions ./funcs.js --output dist_cli",
+    "clean": "rimraf dist_api/*.css dist_cli/*.css",
     "lint": "eslint . ",
-    "pretest": "npm run lint && npm run clean",
-    "test": "npm run api && npm run cli && diff dist/main.css dist2/main.css"
+    "posttest": "diff dist_api/main.css dist_cli/main.css",
+    "prebuild": "npm run clean",
+    "pretest": "npm run lint",
+    "test": "npm run build"
   }
 }
