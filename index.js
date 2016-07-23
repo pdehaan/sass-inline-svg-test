@@ -1,21 +1,19 @@
 const { writeFileSync } = require('fs');
 
 const sass = require('node-sass');
-const inliner = require('sass-inline-svg');
 
-const { IN_FILE, OUT_FILE, SVG_PATH } = require('./CONSTANTS');
+const { IN_FILE, OUT_FILE } = require('./CONSTANTS');
+const functions = require('./funcs');
 
 const sassOpts = {
   file: IN_FILE,
   outFile: OUT_FILE,
-  functions: {
-    svg: inliner(SVG_PATH)
-  }
+  functions
 };
 
 sass.render(sassOpts, function (err, result) {
   if (err) {
-    return console.error(err);
+    return console.error(err); // eslint-disable-line no-console
   }
   writeFileSync(sassOpts.outFile, result.css);
 });
